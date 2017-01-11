@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        {% for s in services %}
+        <div class="col-xs-4">
+            <a href="{% url 'service' id=s.id %}">
+                <img src="http://placehold.it/250x250" class="center-block">
+                <h4 class="text-center">{{ s.name }}</h4>
+                <p class="text-center">Price:{{ s.price }} rub.</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

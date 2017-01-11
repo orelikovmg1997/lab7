@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+
+    <form class="form-signin" method="post" action="">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Please login</h2>
+        {% for e in form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                {{ e }}
+            </div>
+        {% endfor %}
+        {% for i in form %}
+        {{ i.errors }}
+        {{ i }}
+        {% endfor %}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}
